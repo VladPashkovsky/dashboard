@@ -27,7 +27,7 @@ const Datatable = () => {
         Add New User
         <Link to='/users/new' className='link'>Add new</Link>
       </div>
-      <DataGrid
+      <DataGrid className='datagrid'
         rows={userRows}
         columns={userColumns.concat(actionColumn)}
         pageSize={9}

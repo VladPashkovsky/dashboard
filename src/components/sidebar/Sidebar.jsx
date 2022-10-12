@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './sidebar.scss'
 import DashboardIcon from '@mui/icons-material/Dashboard'
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined'
@@ -13,8 +13,11 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined'
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined'
 import { Link } from 'react-router-dom'
+import { DarkModContext } from '../../context/darkModContext'
 
 const Sidebar = () => {
+  const { dispatch } = useContext(DarkModContext)
+
   return (
     <div className='sidebar'>
       <div className='top'>
@@ -87,8 +90,10 @@ const Sidebar = () => {
         </ul>
       </div>
       <div className='bottom'>
-        <div className='colorOptions'></div>
-        <div className='colorOptions'></div>
+        <div className='colorOptions'
+             onClick={() => dispatch({ type: 'LIGHT' })}></div>
+        <div className='colorOptions'
+             onClick={() => dispatch({ type: 'DARK' })}></div>
       </div>
     </div>
   )
