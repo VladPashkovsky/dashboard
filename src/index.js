@@ -2,13 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import { DarkModContextProvider } from './context/darkModContext'
+import { AuthContextProvider } from './context/AuthContext'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <DarkModContextProvider>
-      <App />
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
     </DarkModContextProvider>
   </React.StrictMode>,
 )
