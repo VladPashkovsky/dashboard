@@ -16,8 +16,10 @@
     }
 
     button {
+      box-sizing: content-box;
       width: 200px;
       height: 30px;
+      margin-top: 10px;
       border: none;
       background-color: purple;
       color: white;

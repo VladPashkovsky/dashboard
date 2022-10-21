@@ -69,6 +69,15 @@
           font-weight: bold;
           cursor: pointer;
           margin-top: 10px;
+
+          &:hover {
+            background-color: #025d5d;
+          }
+
+          &:disabled {
+            background-color: #cef3f3;
+            cursor: not-allowed;
+          }
         }
       }
     }
