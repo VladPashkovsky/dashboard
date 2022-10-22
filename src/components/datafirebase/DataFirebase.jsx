@@ -3,26 +3,36 @@ import './datafirebase.scss'
 import { DataGrid } from '@mui/x-data-grid'
 import { userColumns, userColumnsFirebase, userRows } from '../../dataTableSource'
 import { Link } from 'react-router-dom'
-import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore'
+import { collection, getDocs, deleteDoc, doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase'
 
 const DataFirebase = () => {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    const fetchData = async () => {
+    // const fetchData = async () => {
+    //   let list = []
+    //   try {
+    //     const querySnapshot = await getDocs(collection(db, 'users'))
+    //     querySnapshot.forEach((doc) => {
+    //       list.push({ id: doc.id, ...doc.data() })
+    //     })
+    //     setData(list)
+    //   } catch (err) {
+    //     console.log(err)
+    //   }
+    // }
+    // fetchData()
+
+    //Listen (Real time)
+    const unsub = onSnapshot(collection(db, 'users'), (snapShot) => {
       let list = []
-      try {
-        const querySnapshot = await getDocs(collection(db, 'users'))
-        querySnapshot.forEach((doc) => {
-          list.push({ id: doc.id, ...doc.data() })
-        })
-        setData(list)
-      } catch (err) {
-        console.log(err)
-      }
-    }
-    fetchData()
+      snapShot.docs.forEach(doc => {
+        list.push({ id: doc.id, ...doc.data() })
+      })
+      setData(list)
+    }, (error) => console.log(error))
+    return () => unsub()
   }, [])
 
   const handleDelete = async (id) => {
