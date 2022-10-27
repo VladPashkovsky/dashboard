@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { collection, getDocs, deleteDoc, doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase'
 
-const DataFirebase = () => {
+const DataFirebase = ({type}) => {
   const [data, setData] = useState([])
 
   useEffect(() => {

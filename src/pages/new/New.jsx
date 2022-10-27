@@ -8,6 +8,7 @@ import { auth, db, storage } from '../../firebase'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 import { useNavigate } from 'react-router-dom'
+import { CircularProgress } from '@mui/material'
 
 const New = ({ inputs, title }) => {
 
@@ -25,18 +26,18 @@ const New = ({ inputs, title }) => {
       uploadTask.on('state_changed',
         (snapshot) => {
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          console.log('Upload is ' + progress + '% done')
+          // console.log('Upload is ' + progress + '% done')
           setPercentage(progress)
-          switch (snapshot.state) {
-            case 'paused':
-              console.log('Upload is paused')
-              break
-            case 'running':
-              console.log('Upload is running')
-              break
-            default:
-              break
-          }
+          // switch (snapshot.state) {
+          //   case 'paused':
+          //     console.log('Upload is paused')
+          //     break
+          //   case 'running':
+          //     console.log('Upload is running')
+          //     break
+          //   default:
+          //     break
+          // }
         },
         (error) => {
           console.log(error)
@@ -81,14 +82,26 @@ const New = ({ inputs, title }) => {
           <h1>{title}</h1>
         </div>
         <div className='bottomNew'>
+
           <div className='left'>
-            <img
-              src={
-                file
-                  ? URL.createObjectURL(file)
-                  : 'https://icon-library.com/images/no-image-icon/no-image-icon-1.jpg'}
-              alt=''
-            />
+            <div className='formInput'>
+              <label htmlFor='file'>
+                <img
+                  src={
+                    file
+                      ? URL.createObjectURL(file)
+                      : 'https://icon-library.com/images/no-image-icon/no-image-icon-1.jpg'}
+                  alt=''
+                />
+              </label>
+              <input
+                type='file'
+                id='file'
+                onChange={e => setFile(e.target.files[0])}
+                style={{ display: 'none' }}
+              />
+            </div>
+
           </div>
           <div className='right'>
             <form onSubmit={handleAdd}>
@@ -139,7 +152,8 @@ const New = ({ inputs, title }) => {
               {/*  <label>Country</label>*/}
               {/*  <input type='text' placeholder='USA' />*/}
               {/*</div>*/}
-              <button disabled={percentage !== null && percentage < 100} type='submit'>Send</button>
+              <button disabled={percentage !== null && percentage < 100 } type='submit'>
+                Send</button>
             </form>
           </div>
         </div>
