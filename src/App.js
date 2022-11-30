@@ -4,11 +4,13 @@ import List from './pages/list/List'
 import Login from './pages/login/Login'
 import New from './pages/new/New'
 import Single from './pages/single/Single'
+import Products from './pages/products/Products'
 import { userInputs, productInputs } from './formSource'
 import './style/dark.scss'
 import { useContext } from 'react'
 import { DarkModContext } from './context/darkModContext'
 import { AuthContext } from './context/AuthContext'
+import NewProduct from './pages/new/NewProduct'
 
 
 function App() {
@@ -35,9 +37,9 @@ function App() {
                      title='Add New User' />
             </Route>
             <Route path='products'>
-              <Route index element={<RequireAuth><List /></RequireAuth>} />
+              <Route index element={<RequireAuth><Products /></RequireAuth>} />
               <Route path=':productId' element={<RequireAuth><Single /></RequireAuth>} />
-              <Route path='new' element={<RequireAuth><New inputs={productInputs} /></RequireAuth>}
+              <Route path='new' element={<RequireAuth><NewProduct inputs={productInputs} /></RequireAuth>}
                      title='Add New Product' />
             </Route>
           </Route>

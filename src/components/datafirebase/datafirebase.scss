@@ -12,7 +12,7 @@
     justify-content: space-between;
 
     .link {
-      text-decoration: none;
+      //text-decoration: none;
       color: green;
       font-size: 16px;
       font-weight: 400;
@@ -20,6 +20,11 @@
       padding: 5px;
       border-radius: 5px;
       cursor: pointer;
+
+      &:hover {
+        background: green;
+        color: white;
+      }
     }
   }
 
@@ -64,9 +69,14 @@
     .viewButton {
       padding: 2px 5px;
       border-radius: 5px;
-      color: darkblue;
-      border: 1px solid darkblue;
+      color: #7451f8;
+      border: 1px solid #7451f8;
       cursor: pointer;
+
+      &:hover {
+        background: #7451f8;
+        color: white;
+      }
     }
 
     .deleteButton {
@@ -75,6 +85,11 @@
       color: darkred;
       border: 1px solid darkred;
       cursor: pointer;
+
+      &:hover {
+        background: darkred;
+        color: white;
+      }
     }
   }
 }
