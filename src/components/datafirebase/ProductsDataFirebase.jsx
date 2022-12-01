@@ -34,7 +34,7 @@ const ProductsDataFirebase = ({type}) => {
       field: 'action', headerName: 'Action', width: 200, renderCell: (params) => {
         return (
           <div className='cellAction'>
-            <Link to='/products/productId' style={{ textDecoration: 'none' }}>
+            <Link to={`/products/${params.row.id}`} style={{ textDecoration: 'none' }}>
               <div className='viewButton'>View</div>
             </Link>
             <div className='deleteButton' onClick={() => handleDelete(params.row.id)}>Delete</div>

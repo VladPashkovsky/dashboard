@@ -9,12 +9,12 @@ import { doc, collection, onSnapshot, deleteDoc, serverTimestamp } from 'firebas
 import { db } from '../../firebase'
 
 
-const Single = () => {
+const SingleProduct = () => {
   const { id } = useParams()
   const [data, setData] = useState({})
 
   useEffect(() => {
-    const newData = onSnapshot(doc(db, 'users', id), (doc) => {
+    const newData = onSnapshot(doc(db, 'products', id), (doc) => {
       setData({...doc.data()})
     })
     return () => newData()
@@ -34,22 +34,18 @@ const Single = () => {
               <img src={data.img} alt=''
                    className='itemImg' />
               <div className='details'>
-                <h1 className='itemTitle'>{data.displayName}</h1>
+                <h1 className='itemTitle'>{data.category}</h1>
                 <div className='detailItem'>
-                  <span className='itemKey'>Email: </span>
-                  <span className='itemValue'>{data.email}</span>
+                  <span className='itemKey'>Title: </span>
+                  <span className='itemValue'>{data.title}</span>
                 </div>
                 <div className='detailItem'>
-                  <span className='itemKey'>Phone: </span>
-                  <span className='itemValue'>{data.phone}</span>
+                  <span className='itemKey'>Price: </span>
+                  <span className='itemValue'>{data.price}</span>
                 </div>
                 <div className='detailItem'>
-                  <span className='itemKey'>Address: </span>
-                  <span className='itemValue'>{data.address}</span>
-                </div>
-                <div className='detailItem'>
-                  <span className='itemKey'>Country: </span>
-                  <span className='itemValue'>{data.country}</span>
+                  <span className='itemKey'>Description: </span>
+                  <span className='itemValue'>{data.description}</span>
                 </div>
               </div>
             </div>
@@ -67,4 +63,4 @@ const Single = () => {
   )
 }
 
-export default Single
+export default SingleProduct

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './datafirebase.scss'
 import { DataGrid } from '@mui/x-data-grid'
 import { userColumns, userColumnsFirebase, userRows } from '../../dataTableSource'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { collection, getDocs, deleteDoc, doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase'
 
@@ -44,12 +44,13 @@ const DataFirebase = ({type}) => {
       }
     }
 
+
     const actionColumn = [
       {
         field: 'action', headerName: 'Action', width: 200, renderCell: (params) => {
           return (
             <div className='cellAction'>
-              <Link to='/users/userId' style={{ textDecoration: 'none' }}>
+              <Link to={`/users/${params.row.id}`} style={{ textDecoration: 'none' }}>
                 <div className='viewButton'>View</div>
               </Link>
               <div className='deleteButton' onClick={() => handleDelete(params.row.id)}>Delete</div>

@@ -21,8 +21,8 @@
           position: absolute;
           top: 0;
           right: 0;
-          padding: 5px;
-          font-size: 12px;
+          padding: 8px;
+          font-size: 14px;
           color: #982998;
           background-color: #e8d9e8;
           cursor: pointer;
@@ -41,6 +41,7 @@
           }
 
           .details {
+            margin-left: 80px;
 
             .itemTitle {
               margin-bottom: 10px;
