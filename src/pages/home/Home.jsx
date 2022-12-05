@@ -6,18 +6,24 @@ import Widget from '../../components/widgets/Widget'
 import Featured from '../../components/featured/Featured'
 import Chart from '../../components/charts/Chart'
 import MyTable from '../../components/table/MyTable'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate()
+
+  const goToUsers = () => navigate('/users')
+  const goToProducts = () => navigate('/products')
+
   return (
     <div className='home'>
       <Sidebar />
       <div className='homeContainer'>
         <Navbar />
         <div className='widgets'>
-          <Widget type='user' />
-          <Widget type='product' />
-          <Widget type='order' />
-          <Widget type='earning' />
+          <Widget type='user' link={goToUsers}/>
+          <Widget type='product' link={goToProducts}/>
+          <Widget type='order' link={goToProducts}/>
+          <Widget type='earning' link={goToProducts}/>
         </div>
         <div className='charts'>
           <Featured />

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import './single.scss'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Navbar from '../../components/navbar/Navbar'
 import Chart from '../../components/charts/Chart'
 import MyTable from '../../components/table/MyTable'
-import { doc, collection, onSnapshot, deleteDoc, serverTimestamp } from 'firebase/firestore'
+import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase'
 
 

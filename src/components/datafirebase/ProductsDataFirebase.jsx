@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './datafirebase.scss'
 import { DataGrid } from '@mui/x-data-grid'
-import { productColumnsFirebase, userColumns, userColumnsFirebase, userRows } from '../../dataTableSource'
+import { productColumnsFirebase } from '../../dataTableSource'
 import { Link } from 'react-router-dom'
-import { collection, getDocs, deleteDoc, doc, onSnapshot } from 'firebase/firestore'
+import { collection, deleteDoc, doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase'
 
 const ProductsDataFirebase = ({type}) => {

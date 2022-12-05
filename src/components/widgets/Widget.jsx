@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import './widget.scss'
-import { Link } from 'react-router-dom'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowUp'
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn'
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
-import { collection, query, where, getDocs } from 'firebase/firestore'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '../../firebase'
 
-const Widget = ({ type }) => {
+const Widget = ({ type, link }) => {
   const [amount, setAmount] = useState(null)
   const [diff, setDiff] = useState(null)
   let data
@@ -70,6 +69,7 @@ const Widget = ({ type }) => {
       break
   }
 
+
   useEffect(() => {
     const fetchData = async () => {
       const today = new Date()
@@ -98,9 +98,10 @@ const Widget = ({ type }) => {
       <div className='left'>
         <span className='title'>{data.title}</span>
         <span className='counter'>{data.isMoney && '$'} {amount}</span>
-        <Link to='/users' style={{textDecoration: 'none'}}>
-          <span className='link'>{data.link}</span>
-        </Link>
+        <span className='link' onClick={link}>{data.link}</span>
+        {/*<Link to={link} style={{textDecoration: 'none'}}>*/}
+        {/*  <span className='link'>{data.link}</span>*/}
+        {/*</Link>*/}
       </div>
       <div className='right'>
         <div

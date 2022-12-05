@@ -3,12 +3,11 @@ import './new.scss'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Navbar from '../../components/navbar/Navbar'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload'
-import { doc, collection, setDoc, addDoc, serverTimestamp } from 'firebase/firestore'
+import { doc, serverTimestamp, setDoc } from 'firebase/firestore'
 import { auth, db, storage } from '../../firebase'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { useNavigate } from 'react-router-dom'
-import { CircularProgress } from '@mui/material'
 
 const New = ({ inputs, title }) => {
 

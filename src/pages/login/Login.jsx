@@ -33,6 +33,7 @@ const Login = () => {
         <input type='password' placeholder='password' onChange={e => setPassword(e.target.value)} />
         <button type='submit'>Login</button>
         {error && <span>Wrong emil or password!</span>}
+        <span style={{color: 'purple'}}>Email: admin@admin.com Password: 123456789</span>
       </form>
     </div>
   )
