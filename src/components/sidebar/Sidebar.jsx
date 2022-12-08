@@ -12,11 +12,17 @@ import PsychologyOutlinedIcon from '@mui/icons-material/PsychologyOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined'
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { DarkModContext } from '../../context/darkModContext'
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModContext)
+  const navigate = useNavigate()
+
+  const logOut = () => {
+    localStorage.removeItem('user')
+    navigate('/login')
+  }
 
   return (
     <div className='sidebar'>
@@ -88,7 +94,7 @@ const Sidebar = () => {
             <AssignmentIndOutlinedIcon className='icon' />
             <span>Profile</span>
           </li>
-          <li>
+          <li onClick={logOut}>
             <LogoutOutlinedIcon className='icon' />
             <span>Logout</span>
           </li>

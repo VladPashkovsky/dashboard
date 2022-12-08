@@ -49,7 +49,7 @@ const ProductsDataFirebase = ({type}) => {
     <div className='datatable'>
       <div className='datatableTitle'>
         Add New Product
-        <Link to='/products/new' className='link'>Add new</Link>
+        <Link to='/products/new' className='link' style={{textDecoration: 'none'}}>Add new</Link>
       </div>
       <DataGrid className='datagrid'
                 rows={data}

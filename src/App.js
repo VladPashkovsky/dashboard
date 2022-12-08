@@ -13,11 +13,11 @@ import { AuthContext } from './context/AuthContext'
 import NewProduct from './pages/new/NewProduct'
 import SingleProduct from './pages/single/SingleProduct'
 
-
 function App() {
   const { darkMod } = useContext(DarkModContext)
 
   const { currentUser } = useContext(AuthContext)
+
 
   const RequireAuth = ({ children }) => {
     return currentUser ? (children) : <Navigate to='/login' />

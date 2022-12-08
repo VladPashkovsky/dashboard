@@ -65,7 +65,7 @@ const DataFirebase = ({type}) => {
     <div className='datatable'>
       <div className='datatableTitle'>
         Add New User
-        <Link to='/users/new' className='link'>Add new</Link>
+        <Link to='/users/new' className='link' style={{textDecoration: 'none'}}>Add new</Link>
       </div>
       <DataGrid className='datagrid'
                 rows={data}
