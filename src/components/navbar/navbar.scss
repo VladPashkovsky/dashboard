@@ -47,10 +47,23 @@
       }
 
       .avatar {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
+        -webkit-box-shadow: 5px 1px 8px 0px rgba(0,0,0,0.71);
+        box-shadow: 5px 1px 8px 0px rgba(0,0,0,0.71);
+        cursor: pointer;
       }
+
+      .avatar:hover {
+        -moz-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+        transition: 200.0ms;
+      }
+
       .counter {
         width: 15px;
         height: 15px;

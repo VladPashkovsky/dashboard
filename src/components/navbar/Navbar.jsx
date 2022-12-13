@@ -8,10 +8,26 @@ import FullscreenExitOutlinedIcon from '@mui/icons-material/FullscreenExitOutlin
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined'
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined'
 import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined'
+import Tooltip from '@mui/material/Tooltip'
 import { DarkModContext } from '../../context/darkModContext'
 
 const Navbar = () => {
   const { dispatch, darkMod } = useContext(DarkModContext)
+
+  const fullScreenElement = () => {
+    return document.fullscreenElement
+    || document.webkitFullscreenElement
+    || document.mozFullscreenElement
+    || document.msFullscreenElement
+  }
+
+  const toggleFullScreen = () => {
+    if (fullScreenElement()) {
+      document.exitFullscreen().catch(console.log)
+    } else {
+        document.documentElement.requestFullscreen().catch(console.log)
+    }
+  }
 
   return (
     <div className='navbar'>
@@ -25,12 +41,16 @@ const Navbar = () => {
             <LanguageOutlinedIcon className='icon' />
             English
           </div>
-          <div className='item' onClick={() => dispatch({ type: 'TOGGLE' })}>
-            {darkMod ? <DarkModeOutlinedIcon className='icon' /> : <LightModeIcon className='icon'/>}
-          </div>
-          <div className='item'>
-            <FullscreenExitOutlinedIcon className='icon' />
-          </div>
+          <Tooltip title='Dark / Light Mode' placement='bottom-start'>
+            <div className='item' onClick={() => dispatch({ type: 'TOGGLE' })}>
+              {darkMod ? <DarkModeOutlinedIcon className='icon' /> : <LightModeIcon className='icon'/>}
+            </div>
+          </Tooltip>
+          <Tooltip title='Fullscreen' placement='bottom-start'>
+            <div className='item' onClick={toggleFullScreen}>
+              <FullscreenExitOutlinedIcon className='icon' />
+            </div>
+          </Tooltip>
           <div className='item'>
             <NotificationsNoneOutlinedIcon className='icon' />
             <div className='counter'>1</div>
@@ -42,12 +62,16 @@ const Navbar = () => {
           <div className='item'>
             <FormatListBulletedOutlinedIcon className='icon' />
           </div>
-          <div className='item'>
-            <img
-              src='https://avatars.githubusercontent.com/u/91205543?s=400&u=f0a2f68b2ece2f8c41a3c3a4a3e89fae5659ed56&v=4'
-              className='avatar'
-            />
-          </div>
+          <Tooltip title='Code' placement='bottom-start'>
+            <div className='item'>
+              <a href='https://github.com/VladPashkovsky/admin_dashboard' target='_blank'>
+                <img
+                  src='https://avatars.githubusercontent.com/u/91205543?s=400&u=f0a2f68b2ece2f8c41a3c3a4a3e89fae5659ed56&v=4'
+                  className='avatar'
+                />
+              </a>
+            </div>
+          </Tooltip>
         </div>
       </div>
     </div>
