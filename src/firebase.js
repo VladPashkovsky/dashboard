@@ -5,12 +5,12 @@ import { fireBaseInfo } from './fireBaseInfo'
 import { getStorage } from 'firebase/storage'
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_ID,
+  apiKey: "AIzaSyBd4N68K7B9HB1qoJvejAAK57GQbNF0mm4",
+  authDomain: "admin-dashboard-60ebc.firebaseapp.com",
+  projectId: "admin-dashboard-60ebc",
+  storageBucket: "admin-dashboard-60ebc.appspot.com",
+  messagingSenderId: "233667319150",
+  appId: "1:233667319150:web:41fb2c808950a204271d7f",
 }
 
 const app = initializeApp(firebaseConfig)
