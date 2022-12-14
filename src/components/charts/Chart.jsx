@@ -1,8 +1,9 @@
-import React from 'react'
-import './chart.scss'
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
-const Chart = ({aspect, title }) => {
+import './chart.scss'
+import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis } from 'recharts'
+
+
+const Chart  = ({aspect, title }) => {
 
   const data = [
     { name: 'April', Total: 1200 },
