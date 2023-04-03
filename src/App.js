@@ -34,14 +34,12 @@ function App() {
             <Route path='users'>
               <Route index element={<RequireAuth><List /></RequireAuth>} />
               <Route path=':id' element={<RequireAuth><Single /></RequireAuth>} />
-              <Route path='new' element={<RequireAuth><New inputs={userInputs} /></RequireAuth>}
-                     title='Add New User' />
+              <Route path='new' element={<RequireAuth><New inputs={userInputs} title='Add New User'/></RequireAuth>} />
             </Route>
             <Route path='products'>
               <Route index element={<RequireAuth><Products /></RequireAuth>} />
               <Route path=':id' element={<RequireAuth><SingleProduct /></RequireAuth>} />
-              <Route path='new' element={<RequireAuth><NewProduct inputs={productInputs} /></RequireAuth>}
-                     title='Add New Product' />
+              <Route path='new' element={<RequireAuth><NewProduct inputs={productInputs} title='Add New Product'/></RequireAuth>} />
             </Route>
           </Route>
         </Routes>

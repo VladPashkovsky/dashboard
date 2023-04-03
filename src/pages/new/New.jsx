@@ -9,7 +9,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { useNavigate } from 'react-router-dom'
 
-const New = ({ inputs, title }) => {
+const New = ( {inputs, title} ) => {
 
   const [file, setFile] = useState('')
   const [data, setData] = useState({})
@@ -77,7 +77,7 @@ const New = ({ inputs, title }) => {
       <Sidebar />
       <div className='newContainer'>
         <Navbar />
-        <div className='top'>
+        <div className='topNew'>
           <h1>{title}</h1>
         </div>
         <div className='bottomNew'>

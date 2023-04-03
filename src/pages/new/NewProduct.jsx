@@ -80,7 +80,7 @@ const NewProduct = ({ inputs, title }) => {
       <Sidebar />
       <div className='newContainer'>
         <Navbar />
-        <div className='top'>
+        <div className='topNew'>
           <h1>{title}</h1>
         </div>
         <div className='bottomNew'>
