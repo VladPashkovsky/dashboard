@@ -1,5 +1,5 @@
 .app.dark {
-  background-color: #222;
+  background-color: #343333;
   color: rgb(217, 212, 212);
 
   .chartGrid {
@@ -7,7 +7,7 @@
   }
 
   .table {
-    background-color: #222;
+    background-color: #343333;
 
     .tableCell {
       color: rgb(217, 212, 212);
@@ -19,7 +19,11 @@
     border-color: #424141;
 
     .search {
-      border-color: #424141;
+      border: 2px solid #575555;
+
+      input, select, textarea {
+        color: rgb(217, 212, 212);
+      }
     }
   }
 
@@ -38,9 +42,19 @@
     }
 
     ul {
+
+
       li {
         &:hover {
           background-color: #b6b3b3;
+
+          .icon {
+            color: #343333;
+          }
+
+          span {
+           color: #343333;
+          }
         }
 
         .icon {
@@ -55,9 +69,14 @@
       color: rgb(217, 212, 212);
       border: none;
 
-      .viewButton, .deleteButton {
+      .viewButton  {
         color: rgb(217, 212, 212);
-        border: none;
+        border: 1px solid #7851dc;
+      }
+
+      .deleteButton {
+        color: rgb(217, 212, 212);
+        border: 1px solid #b90808;
       }
     }
   }
@@ -65,3 +84,5 @@
     background-color: transparent;
   }
 }
+
+
