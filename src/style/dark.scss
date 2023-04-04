@@ -80,8 +80,9 @@
       }
     }
   }
-  input {
+  input, select, textarea {
     background-color: transparent;
+    color: rgb(217, 212, 212);
   }
 }
 
