@@ -12,12 +12,12 @@ import { DarkModContext } from './context/darkModContext'
 import { AuthContext } from './context/AuthContext'
 import NewProduct from './pages/new/NewProduct'
 import SingleProduct from './pages/single/SingleProduct'
+import Edit from './pages/edit/Edit'
 
 function App() {
   const { darkMod } = useContext(DarkModContext)
 
   const { currentUser } = useContext(AuthContext)
-
 
   const RequireAuth = ({ children }) => {
     return currentUser ? (children) : <Navigate to='/login' />
@@ -36,6 +36,11 @@ function App() {
               <Route path=':id' element={<RequireAuth><Single /></RequireAuth>} />
               <Route path='new' element={<RequireAuth><New inputs={userInputs} title='Add New User'/></RequireAuth>} />
             </Route>
+
+            <Route path='edit'>
+              <Route path=':id' element={<RequireAuth><Edit title='Edit User'/></RequireAuth>} />
+            </Route>
+
             <Route path='products'>
               <Route index element={<RequireAuth><Products /></RequireAuth>} />
               <Route path=':id' element={<RequireAuth><SingleProduct /></RequireAuth>} />

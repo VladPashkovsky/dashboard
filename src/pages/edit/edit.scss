@@ -1,13 +1,13 @@
-.new {
+.edit {
   width: 100%;
   display: flex;
 
-  .newContainer {
+  .editContainer {
     flex: 6;
   }
 
 
-  .topNew, .bottomNew {
+  .topEdit, .bottomEdit {
     -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
     box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
     padding: 10px;

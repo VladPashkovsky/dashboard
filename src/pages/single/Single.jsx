@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import './single.scss'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Navbar from '../../components/navbar/Navbar'
@@ -12,6 +12,7 @@ import { db } from '../../firebase'
 const Single = () => {
   const { id } = useParams()
   const [data, setData] = useState({})
+  const navigate = useNavigate()
 
   useEffect(() => {
     const newData = onSnapshot(doc(db, 'users', id), (doc) => {
@@ -20,6 +21,7 @@ const Single = () => {
     return () => newData()
   }, [id])
 
+  const goEdit = () => navigate(`/edit/${id}`)
 
   return (
     <div className='single'>
@@ -28,7 +30,7 @@ const Single = () => {
         <Navbar />
         <div className='top'>
           <div className='left'>
-            <div className='editButton'>Edit</div>
+            <div className='editButton' onClick={goEdit}>Edit</div>
             <h1 className='title'>Information</h1>
             <div className='item'>
               <img src={data.img} alt=''
