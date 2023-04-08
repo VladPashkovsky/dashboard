@@ -22,7 +22,10 @@ const Edit = ( {title} ) => {
       setData({...doc.data()})
     })
     return () => newData()
+
   }, [id])
+
+
 
   useEffect(() => {
     const uploadFile = () => {
@@ -48,26 +51,31 @@ const Edit = ( {title} ) => {
     file && uploadFile()
   }, [file])
 
-  const handleAdd = async (e) => {
+
+  const handleEdit = async (e) => {
     e.preventDefault()
     try {
-      const response = await createUserWithEmailAndPassword(auth, data.email, data.password)
-      await setDoc(doc(db, 'users', response.user.uid), {
-        ...data,
-        timeStamp: serverTimestamp(),
-      })
-      navigate(-1)
+      // const userEdit = doc(db, 'users', id)
+      // await updateDoc(userEdit, {
+      //   displayName: data.displayName
+      // })
+      await updateDoc(doc(db, 'users', id), {
+        username: `${data.username}`,
+        timeStamp: serverTimestamp()
+      }, )
+      navigate('/users')
     } catch (err) {
       console.log(err)
     }
+    console.log(data)
   }
 
-  const handleInput = (e) => {
+  function handleInput(e) {
     const id = e.target.id
     const value = e.target.value
-
     setData({ ...data, [id]: value })
   }
+
 
   return (
     <div className='edit'>
@@ -100,7 +108,7 @@ const Edit = ( {title} ) => {
 
           </div>
           <div className='right'>
-            <form onSubmit={handleAdd}>
+            <form onSubmit={handleEdit}>
               <div className='formInput'>
                 <label htmlFor='file'>
                   Image: <DriveFolderUploadIcon className='icon' />
@@ -126,34 +134,41 @@ const Edit = ( {title} ) => {
 
               <div className='formInput'>
                 <label>Username</label>
-                <input type='text' placeholder={data.username} />
+                <input type='text' placeholder={data.username}
+                       onChange={handleInput}/>
               </div>
               <div className='formInput'>
                 <label>Name and Surname</label>
-                <input type='text' placeholder={data.displayName} />
+                <input type='text' placeholder={data.displayName}
+                       onChange={handleInput}/>
               </div>
               <div className='formInput'>
                 <label>Email</label>
-                <input type='email' placeholder={data.email} />
+                <input type='email' placeholder={data.email}
+                       onChange={handleInput}/>
               </div>
               <div className='formInput'>
                 <label>Phone</label>
-                <input type='text' placeholder={data.phone} />
+                <input type='text' placeholder={data.phone}
+                       onChange={handleInput}/>
               </div>
               <div className='formInput'>
                 <label>Password</label>
-                <input type='password' placeholder={data.password}/>
+                <input type='password' placeholder={data.password}
+                       onChange={handleInput}/>
               </div>
               <div className='formInput'>
                 <label>Address</label>
-                <input type='text' placeholder={data.address} />
+                <input type='text' placeholder={data.address}
+                       onChange={handleInput}/>
               </div>
               <div className='formInput'>
                 <label>Country</label>
-                <input type='text' placeholder={data.country} />
+                <input type='text' placeholder={data.country}
+                       onChange={handleInput}/>
               </div>
-              <button disabled={percentage !== null && percentage < 100 } type='submit'>
-                Send</button>
+              <button disabled={percentage !== null && percentage < 100 }
+                      type='submit'>Send</button>
             </form>
           </div>
         </div>
