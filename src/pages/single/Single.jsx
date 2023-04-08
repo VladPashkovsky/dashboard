@@ -7,6 +7,8 @@ import Chart from '../../components/charts/Chart'
 import MyTable from '../../components/table/MyTable'
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Tooltip from '@mui/material/Tooltip'
 
 
 const Single = () => {
@@ -21,6 +23,7 @@ const Single = () => {
     return () => newData()
   }, [id])
 
+  const goBack = () => navigate('/users')
   const goEdit = () => navigate(`/edit/${id}`)
 
   return (
@@ -30,7 +33,17 @@ const Single = () => {
         <Navbar />
         <div className='top'>
           <div className='left'>
-            <div className='editButton' onClick={goEdit}>Edit</div>
+            <div className='buttons'>
+              <Tooltip title='Back' placement='bottom-start'>
+                <div className='backButton' onClick={goBack}>
+                  <ArrowBackIcon />
+                </div>
+              </Tooltip>
+              <Tooltip title='Edit User' placement='bottom-start'>
+                <div className='editButton' onClick={goEdit}>Edit</div>
+              </Tooltip>
+            </div>
+
             <h1 className='title'>Information</h1>
             <div className='item'>
               <img src={data.img} alt=''

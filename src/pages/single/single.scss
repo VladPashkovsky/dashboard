@@ -17,24 +17,52 @@
         padding: 20px;
         position: relative;
 
-        .editButton {
+        .buttons {
           position: absolute;
+          justify-content: space-around;
           top: 0;
           right: 0;
-          width: 40px;
-          height: 25px;
-          padding: 8px;
-          font-size: 14px;
-          text-align: center;
-          color: #982998;
-          background-color: #e8d9e8;
-          cursor: pointer;
-          border-radius: 0 0 5px 5px;
 
-          &:hover {
-            background-color: #efc2ef;
+          .backButton {
+            position: absolute;
+            top: 0;
+            right: 60px;
+            width: 40px;
+            height: 25px;
+            padding: 8px;
+            font-size: 14px;
+            text-align: center;
+            color: #982998;
+            background-color: #e8d9e8;
+            cursor: pointer;
+            border-radius: 0 0 5px 5px;
+
+            &:hover {
+              background-color: #efc2ef;
+            }
+          }
+
+          .editButton {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 25px;
+            padding: 8px;
+            font-size: 14px;
+            text-align: center;
+            color: #982998;
+            background-color: #e8d9e8;
+            cursor: pointer;
+            border-radius: 0 0 5px 5px;
+
+            &:hover {
+              background-color: #efc2ef;
+            }
           }
         }
+
+
 
         .item {
           display: flex;
