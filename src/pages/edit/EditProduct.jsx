@@ -3,13 +3,14 @@ import './edit.scss'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Navbar from '../../components/navbar/Navbar'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload'
-import { doc, onSnapshot, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore'
+import { doc, collection, setDoc, addDoc, serverTimestamp, onSnapshot, updateDoc } from 'firebase/firestore'
 import { auth, db, storage } from '../../firebase'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 import { useNavigate, useParams } from 'react-router-dom'
+import { CircularProgress } from '@mui/material'
 
-const Edit = ( {title} ) => {
+const EditProduct = ({ title }) => {
 
   const {id} = useParams()
   const [file, setFile] = useState('')
@@ -18,14 +19,12 @@ const Edit = ( {title} ) => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const newData = onSnapshot(doc(db, 'users', id), (doc) => {
+    const newData = onSnapshot(doc(db, 'products', id), (doc) => {
       setData({...doc.data()})
     })
     return () => newData()
 
   }, [id])
-
-
 
   useEffect(() => {
     const uploadFile = () => {
@@ -51,30 +50,30 @@ const Edit = ( {title} ) => {
     file && uploadFile()
   }, [file])
 
-
-  const handleEdit = async (e) => {
+  const handleAdd = async (e) => {
     e.preventDefault()
     try {
-      // const userEdit = doc(db, 'users', id)
-      // await updateDoc(userEdit, {
-      //   displayName: data.displayName
-      // })
-      await updateDoc(doc(db, 'users', id), {
-        username: `${data.username}`,
-        timeStamp: serverTimestamp()
-      }, )
-      navigate('/users')
+      const newProduct = doc(collection(db, 'products'))
+      await setDoc(newProduct,
+        { category: `${data.category}`, timeStamp: serverTimestamp()
+      })
+      // await updateDoc(doc(db, 'products', id), {
+      //   category: `${data.category}`,
+      //   timeStamp: serverTimestamp()
+      // }, )
+
+      navigate('/products')
     } catch (err) {
       console.log(err)
     }
   }
 
-  function handleInput(e) {
+  const handleInput = (e) => {
     const id = e.target.id
     const value = e.target.value
+
     setData({ ...data, [id]: value })
   }
-
 
   return (
     <div className='edit'>
@@ -107,7 +106,7 @@ const Edit = ( {title} ) => {
 
           </div>
           <div className='right'>
-            <form onSubmit={handleEdit}>
+            <form onSubmit={handleAdd}>
               <div className='formInput'>
                 <label htmlFor='file'>
                   Image: <DriveFolderUploadIcon className='icon' />
@@ -130,44 +129,34 @@ const Edit = ( {title} ) => {
               {/*      onChange={handleInput} />*/}
               {/*  </div>*/}
               {/*))}*/}
-
               <div className='formInput'>
-                <label>Username</label>
-                <input type='text' placeholder={data.username}
+                <label>Category</label>
+                <input type='text' placeholder={data.category}
                        onChange={handleInput}/>
               </div>
               <div className='formInput'>
-                <label>Name and Surname</label>
-                <input type='text' placeholder={data.displayName}
+                <label>Description</label>
+                <input type='text' placeholder={data.description}
                        onChange={handleInput}/>
               </div>
               <div className='formInput'>
-                <label>Email</label>
-                <input type='email' placeholder={data.email}
+                <label>Price</label>
+                <input type='text' placeholder={data.price}
                        onChange={handleInput}/>
               </div>
               <div className='formInput'>
-                <label>Phone</label>
-                <input type='text' placeholder={data.phone}
+                <label>Title</label>
+                <input type='text' placeholder={data.title}
                        onChange={handleInput}/>
               </div>
               <div className='formInput'>
-                <label>Password</label>
-                <input type='password' placeholder={data.password}
+                <label>Status</label>
+                <input type='text' placeholder={data.status}
                        onChange={handleInput}/>
               </div>
-              <div className='formInput'>
-                <label>Address</label>
-                <input type='text' placeholder={data.address}
-                       onChange={handleInput}/>
-              </div>
-              <div className='formInput'>
-                <label>Country</label>
-                <input type='text' placeholder={data.country}
-                       onChange={handleInput}/>
-              </div>
-              <button disabled={percentage !== null && percentage < 100 }
-                      type='submit'>Send</button>
+              <button disabled={percentage !== null && percentage < 100} type='submit'>
+                Send
+              </button>
             </form>
           </div>
         </div>
@@ -176,4 +165,4 @@ const Edit = ( {title} ) => {
   )
 }
 
-export default Edit
+export default EditProduct
