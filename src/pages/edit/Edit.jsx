@@ -3,9 +3,8 @@ import './edit.scss'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Navbar from '../../components/navbar/Navbar'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload'
-import { doc, onSnapshot, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore'
+import { doc, onSnapshot, serverTimestamp, updateDoc, } from 'firebase/firestore'
 import { auth, db, storage } from '../../firebase'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { useNavigate, useParams } from 'react-router-dom'
 
@@ -24,7 +23,6 @@ const Edit = ( {title} ) => {
     return () => newData()
 
   }, [id])
-
 
 
   useEffect(() => {
@@ -54,13 +52,10 @@ const Edit = ( {title} ) => {
 
   const handleEdit = async (e) => {
     e.preventDefault()
+    setData({...data})
     try {
-      // const userEdit = doc(db, 'users', id)
-      // await updateDoc(userEdit, {
-      //   displayName: data.displayName
-      // })
       await updateDoc(doc(db, 'users', id), {
-        username: `${data.username}`,
+        username : data.username,
         timeStamp: serverTimestamp()
       }, )
       navigate('/users')
