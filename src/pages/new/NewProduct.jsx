@@ -3,12 +3,10 @@ import './new.scss'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Navbar from '../../components/navbar/Navbar'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload'
-import { doc, collection, setDoc, addDoc, serverTimestamp } from 'firebase/firestore'
+import { doc, collection, setDoc, serverTimestamp } from 'firebase/firestore'
 import { auth, db, storage } from '../../firebase'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 import { useNavigate } from 'react-router-dom'
-import { CircularProgress } from '@mui/material'
 
 const NewProduct = ({ inputs, title }) => {
 
@@ -26,18 +24,7 @@ const NewProduct = ({ inputs, title }) => {
       uploadTask.on('state_changed',
         (snapshot) => {
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          // console.log('Upload is ' + progress + '% done')
           setPercentage(progress)
-          // switch (snapshot.state) {
-          //   case 'paused':
-          //     console.log('Upload is paused')
-          //     break
-          //   case 'running':
-          //     console.log('Upload is running')
-          //     break
-          //   default:
-          //     break
-          // }
         },
         (error) => {
           console.log(error)
@@ -57,11 +44,6 @@ const NewProduct = ({ inputs, title }) => {
     try {
       const newProduct = doc(collection(db, 'products'))
       await setDoc(newProduct, { ...data, timeStamp: serverTimestamp() })
-      // const response = await createUserWithEmailAndPassword(auth, data.email, data.password)
-      // await setDoc(doc(db, 'products', response.user.uid), {
-      //   ...data,
-      //   timeStamp: serverTimestamp(),
-      // })
       navigate(-1)
     } catch (err) {
       console.log(err)

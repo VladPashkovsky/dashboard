@@ -14,7 +14,6 @@ import Tooltip from '@mui/material/Tooltip'
 const SingleProduct = () => {
   const { id } = useParams()
   const [data, setData] = useState({})
-  const navigate = useNavigate()
 
   useEffect(() => {
     const newData = onSnapshot(doc(db, 'products', id), (doc) => {
@@ -22,9 +21,6 @@ const SingleProduct = () => {
     })
     return () => newData()
   }, [id])
-
-  const goBack = () => navigate('/products')
-  const goEdit = () => navigate(`/editproduct/${id}`)
 
 
   return (
@@ -34,16 +30,6 @@ const SingleProduct = () => {
         <Navbar />
         <div className='top'>
           <div className='left'>
-            <div className='buttons'>
-              <Tooltip title='Back' placement='bottom-start'>
-                <div className='backButton' onClick={goBack}>
-                  <ArrowBackIcon />
-                </div>
-              </Tooltip>
-              <Tooltip title='Edit Product' placement='bottom-start'>
-                <div className='editButton' onClick={goEdit}>Edit</div>
-              </Tooltip>
-            </div>
             <h1 className='title'>Information</h1>
             <div className='item'>
               <img src={data.img} alt=''
