@@ -13,6 +13,7 @@ import { AuthContext } from './context/AuthContext'
 import NewProduct from './pages/new/NewProduct'
 import SingleProduct from './pages/single/SingleProduct'
 import Edit from './pages/edit/Edit'
+import Orders from './pages/orders/Orders'
 
 function App() {
   const { darkMod } = useContext(DarkModContext)
@@ -45,6 +46,10 @@ function App() {
               <Route index element={<RequireAuth><Products /></RequireAuth>} />
               <Route path=':id' element={<RequireAuth><SingleProduct /></RequireAuth>} />
               <Route path='new' element={<RequireAuth><NewProduct inputs={productInputs} title='Add New Product'/></RequireAuth>} />
+            </Route>
+
+            <Route path='orders'>
+              <Route index element={<RequireAuth><Orders /></RequireAuth>}/>
             </Route>
 
           </Route>
