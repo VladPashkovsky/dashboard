@@ -34,7 +34,7 @@ const Widget = ({ type, link }) => {
       break
     case 'order':
       data = {
-        title: 'Orders',
+        title: 'ORDER',
         isMoney: false,
         link: 'View all orders',
         icon: (

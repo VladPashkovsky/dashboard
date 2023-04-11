@@ -20,6 +20,10 @@
     border: 0.5px solid lightgray;
     padding: 3px;
 
+    .searchIcon {
+      cursor: pointer;
+    }
+
     input {
       border: none;
       outline: none;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './datafirebase.scss'
-import { DataGrid } from '@mui/x-data-grid'
+import { DataGrid, GridToolbar } from '@mui/x-data-grid'
 import { productColumnsFirebase } from '../../dataTableSource'
 import { Link } from 'react-router-dom'
 import { collection, deleteDoc, doc, onSnapshot } from 'firebase/firestore'
@@ -56,6 +56,7 @@ const ProductsDataFirebase = ({type}) => {
                 columns={productColumnsFirebase.concat(actionColumn)}
                 pageSize={9}
                 rowsPerPageOptions={[9]}
+                components={{Toolbar: GridToolbar}}
                 checkboxSelection
       />
     </div>
