@@ -3,6 +3,7 @@ import './orders.scss'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Navbar from '../../components/navbar/Navbar'
 import DataFirebase from '../../components/datafirebase/DataFirebase'
+import OrdersDataFirebase from '../../components/datafirebase/OrdersDataFirebase'
 
 const Orders = () => {
   return (
@@ -11,7 +12,7 @@ const Orders = () => {
       <div className='ordersContainer'>
         <Navbar />
         {/*<Datatable />*/}
-        <DataFirebase />
+        <OrdersDataFirebase />
       </div>
     </div>
   )

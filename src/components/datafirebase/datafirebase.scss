@@ -91,5 +91,18 @@
         color: white;
       }
     }
+
+    .completeButton {
+      padding: 2px 55px;
+      border-radius: 5px;
+      color: darkgreen;
+      border: 1px solid darkgreen;
+      cursor: pointer;
+
+      &:hover {
+        background: darkgreen;
+        color: white;
+      }
+    }
   }
 }

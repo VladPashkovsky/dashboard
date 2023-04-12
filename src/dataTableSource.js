@@ -67,6 +67,31 @@ export const productColumnsFirebase = [
   },
 ]
 
+export const OrdersColumnsFirebase = [
+  { field: 'id', headerName: 'ID', width: 200 },
+  // {
+  //   field: 'product', headerName: 'Product', width: 230, renderCell: (params) => {
+  //     return (
+  //       <div className='cellWithImg'>
+  //         <img className='cellImg' src={params.row.img} alt='avatar' />
+  //         {params.row.username}
+  //       </div>
+  //     )
+  //   },
+  // },
+  { field: 'date', headerName: 'Date', width: 230 },
+  { field: 'brand', headerName: 'Brand', width: 300 },
+  {field: 'model', headerName: 'Model', width: 300},
+  { field: 'description', headerName: 'Description', width: 300 }
+  // {
+  //   field: 'status', headerName: 'Status', width: 200, renderCell: (params) => {
+  //     return (
+  //       <div className={`cellWithStatus ${params.row.status}`}>{params.row.status}</div>
+  //     )
+  //   },
+  // },
+]
+
 export const userRows = [
   {
     id: 1,
