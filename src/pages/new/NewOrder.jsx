@@ -118,7 +118,7 @@ const NewOrder = ({title}) => {
                     />
                   </Box>
                   <Box display='flex' justifyContent='end' mt='20px'>
-                    <Button type='submit' color='secondary' variant='contained'>
+                    <Button disabled={values !== values} type='submit' color='secondary' variant='contained'>
                       Add New Order
                     </Button>
                   </Box>

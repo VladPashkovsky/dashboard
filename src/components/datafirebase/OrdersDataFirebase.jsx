@@ -5,10 +5,14 @@ import { OrdersColumnsFirebase, userColumnsFirebase } from '../../dataTableSourc
 import { Link } from 'react-router-dom'
 import { collection, deleteDoc, doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase'
+import {Modal} from '../modal/Modal'
+import { Button } from '@mui/material'
+
 
 
 const OrdersDataFirebase = () => {
   const [data, setData] = useState([])
+  const [activeModalNice, setActiveModalNice] = useState(false)
 
   useEffect(() => {
     const unsub = onSnapshot(collection(db, 'orders'), (snapShot) => {
@@ -25,11 +29,11 @@ const OrdersDataFirebase = () => {
     try {
       await deleteDoc(doc(db, 'orders', id))
       setData(data.filter(item => item.id !== id))
+      setActiveModalNice(false)
     } catch (err) {
       console.log(err)
     }
   }
-
 
   const actionColumn = [
     {
