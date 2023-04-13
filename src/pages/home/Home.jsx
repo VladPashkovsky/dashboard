@@ -13,6 +13,7 @@ const Home = () => {
 
   const goToUsers = () => navigate('/users')
   const goToProducts = () => navigate('/products')
+  const goToOrders = () => navigate('/orders')
 
   return (
     <div className='home'>
@@ -22,7 +23,7 @@ const Home = () => {
         <div className='widgets'>
           <Widget type='user' link={goToUsers}/>
           <Widget type='product' link={goToProducts}/>
-          <Widget type='order' link={goToProducts}/>
+          <Widget type='order' link={goToOrders}/>
           <Widget type='earning' link={goToProducts}/>
         </div>
         <div className='charts'>
