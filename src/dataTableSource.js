@@ -79,9 +79,9 @@ export const OrdersColumnsFirebase = [
   //     )
   //   },
   // },
-  { field: 'date', headerName: 'Date', width: 230 },
-  { field: 'brand', headerName: 'Brand', width: 300 },
-  {field: 'model', headerName: 'Model', width: 300},
+  { field: 'date', headerName: 'Date', width: 200 },
+  { field: 'brand', headerName: 'Brand', width: 200 },
+  {field: 'model', headerName: 'Model', width: 200},
   { field: 'description', headerName: 'Description', width: 300 }
   // {
   //   field: 'status', headerName: 'Status', width: 200, renderCell: (params) => {

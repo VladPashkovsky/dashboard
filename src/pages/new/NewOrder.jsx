@@ -6,6 +6,9 @@ import {Box, Button, TextField} from "@mui/material"
 import {Formik} from 'formik'
 import * as yup from 'yup'
 import { useMediaQuery } from '@mui/material'
+import { collection, doc, serverTimestamp, setDoc } from 'firebase/firestore'
+import { db } from '../../firebase'
+import { useNavigate } from 'react-router-dom'
 
 const initialValues = {
   date: '',
@@ -14,10 +17,10 @@ const initialValues = {
   description: ''
 }
 
-const regExp =  /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/
+//const regExp =  /^(0?[1-9]|[12]\d|30|31)[^\w\d\r\n:](0?[1-9]|1[0-2])[^\w\d\r\n:](\d{4}|\d{2})$/
 
 const orderSchema = yup.object().shape({
-  data: yup.string().matches(regExp, 'Date is not valid').required('required'),
+  data: yup.date().required('required').default(() => new Date()),
   brand: yup.string().required('required'),
   model: yup.string().required('required'),
   description: yup.string().required('required')
@@ -25,10 +28,18 @@ const orderSchema = yup.object().shape({
 
 const NewOrder = ({title}) => {
   const isNonMobile = useMediaQuery('(min-width:600px)')
+  const navigate = useNavigate()
 
-  const handleFormSubmit = (values) => {
-    console.log(values)
+  const handleFormSubmit = async (data) => {
+      try {
+        const newOrder = doc(collection(db, 'orders'))
+        await setDoc(newOrder, { ...data, timeStamp: serverTimestamp() })
+        navigate('/orders')
+      } catch (err) {
+        console.log(err)
+      }
   }
+
 
   return (
     <div className='new'>
@@ -46,7 +57,7 @@ const NewOrder = ({title}) => {
               onSubmit={handleFormSubmit}
               validationSchema={orderSchema}
             >
-              {({values, errors, touched, handleBlur, handleChange, handleSubmit}) => (
+              {({values, errors, touched, handleBlur, handleChange, handleSubmit, }) => (
                 <form onSubmit={handleSubmit}>
                   <Box display='grid'
                        gap='30px'
@@ -56,20 +67,65 @@ const NewOrder = ({title}) => {
                     <TextField
                       fullWidth
                       variant='filled'
-                      type='text'
-                      label='Date'
+                      type='date'
+                      label=''
                       onBlur={handleBlur}
                       onChange={handleChange}
                       value={values.date}
                       name='date'
-                      error={!!touched.date}
+                      error={!!touched.date && !!errors.date}
+                      helperText={touched.date && errors.date}
+                      sx={{gridColumn: 'span 2'}}
                     />
+                    <TextField
+                      fullWidth
+                      variant='filled'
+                      type='text'
+                      label='Brand'
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      value={values.brand}
+                      name='brand'
+                      error={!!touched.brand && !!errors.brand}
+                      helperText={touched.brand && errors.brand}
+                      sx={{gridColumn: 'span 2'}}
+                    />
+                    <TextField
+                      fullWidth
+                      variant='filled'
+                      type='text'
+                      label='Model'
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      value={values.model}
+                      name='model'
+                      error={!!touched.model && !!errors.model}
+                      helperText={touched.model && errors.model}
+                      sx={{gridColumn: 'span 4'}}
+                    />
+                    <TextField
+                      fullWidth
+                      variant='filled'
+                      type='text'
+                      label='Description'
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      value={values.description}
+                      name='description'
+                      error={!!touched.description && !!errors.description}
+                      helperText={touched.description && errors.description}
+                      sx={{gridColumn: 'span 4'}}
+                    />
+                  </Box>
+                  <Box display='flex' justifyContent='end' mt='20px'>
+                    <Button type='submit' color='secondary' variant='contained'>
+                      Add New Order
+                    </Button>
                   </Box>
                 </form>
               )}
             </Formik>
           </Box>
-
         </div>
       </div>
     </div>
