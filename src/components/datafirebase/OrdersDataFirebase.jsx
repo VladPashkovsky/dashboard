@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './datafirebase.scss'
 import { DataGrid, GridToolbar } from '@mui/x-data-grid'
-import { OrdersColumnsFirebase, userColumnsFirebase } from '../../dataTableSource'
+import { OrdersColumnsFirebase } from '../../dataTableSource'
 import { Link } from 'react-router-dom'
 import { collection, deleteDoc, doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase'
-import ModalOne from '../modalOne/ModalOne'
 import { Modal } from '../modal/Modal'
 
 
