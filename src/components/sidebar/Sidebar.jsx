@@ -5,13 +5,13 @@ import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined'
 import StoreOutlinedIcon from '@mui/icons-material/StoreOutlined'
 import CreditCardOutlinedIcon from '@mui/icons-material/CreditCardOutlined'
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined'
-import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined'
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined'
 import SettingsSystemDaydreamOutlinedIcon from '@mui/icons-material/SettingsSystemDaydreamOutlined'
 import PsychologyOutlinedIcon from '@mui/icons-material/PsychologyOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined'
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined'
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import { Link, useNavigate } from 'react-router-dom'
 import { DarkModContext } from '../../context/darkModContext'
 
@@ -70,11 +70,16 @@ const Sidebar = () => {
             <LocalShippingOutlinedIcon className='icon' />
             <span>Delivery</span>
           </li>
+
           <p className='title'>USEFUL</p>
-          <li>
-            <AssessmentOutlinedIcon className='icon' />
-            <span>Stats</span>
-          </li>
+
+          <Link to='/calendar' style={{ textDecoration: 'none' }}>
+            <li>
+              <CalendarMonthIcon className='icon' />
+              <span>Calendar</span>
+            </li>
+          </Link>
+
           <li>
             <NotificationsOutlinedIcon className='icon' />
             <span>Notifications</span>
