@@ -105,4 +105,51 @@
       }
     }
   }
+
+  .modalWindow {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .modalText {
+      font-size: 20px;
+      color: black;
+    }
+
+    .modalButtons {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+
+      .modalOk {
+        padding: 5px 5px;
+        width: 50px;
+        border-radius: 5px;
+        color: green;
+        border: 1px solid green;
+        cursor: pointer;
+
+        &:hover {
+          background: green;
+          color: white;
+        }
+      }
+
+      .modalCancel {
+        padding: 5px 5px;
+        border-radius: 5px;
+        color: darkred;
+        border: 1px solid darkred;
+        cursor: pointer;
+
+        &:hover {
+          background: darkred;
+          color: white;
+        }
+      }
+    }
+  }
 }
