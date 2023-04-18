@@ -85,6 +85,7 @@ const Faq = ({title}) => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
+
             <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
