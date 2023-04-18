@@ -8,7 +8,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import listPlugin from '@fullcalendar/list'
 import interactionPlugin from '@fullcalendar/interaction'
-import { Box, colors, List, ListItem, ListItemText, Typography, useTheme } from '@mui/material'
+import { Box, List, ListItem, ListItemText, Typography} from '@mui/material'
 
 
 const Calendar = ({ title }) => {
@@ -55,7 +55,7 @@ const Calendar = ({ title }) => {
                 <List>
                   {currentEvents.map((event) => (
                     <ListItem key={event.id}
-                              sx={{ backgroundColor: 'lightgrey', margin: '10px 0', borderRadius: '2px' }}>
+                              sx={{ backgroundColor: '#7451f8', margin: '10px 0', borderRadius: '2px' }}>
                       <ListItemText primary={event.title}
                                     secondary={<Typography>
                                       {formatDate(event.start, { year: 'numeric', month: 'short', day: 'numeric' })}
