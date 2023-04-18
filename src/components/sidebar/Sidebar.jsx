@@ -5,7 +5,7 @@ import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined'
 import StoreOutlinedIcon from '@mui/icons-material/StoreOutlined'
 import CreditCardOutlinedIcon from '@mui/icons-material/CreditCardOutlined'
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined'
-import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined'
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import SettingsSystemDaydreamOutlinedIcon from '@mui/icons-material/SettingsSystemDaydreamOutlined'
 import PsychologyOutlinedIcon from '@mui/icons-material/PsychologyOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
@@ -80,11 +80,15 @@ const Sidebar = () => {
             </li>
           </Link>
 
-          <li>
-            <NotificationsOutlinedIcon className='icon' />
-            <span>Notifications</span>
-          </li>
+          <Link to='/faq' style={{textDecoration: 'none'}}>
+            <li>
+              <HelpOutlineIcon className='icon' />
+              <span>FAQ</span>
+            </li>
+          </Link>
+
           <p className='title'>SERVICE</p>
+
           <li>
             <SettingsSystemDaydreamOutlinedIcon className='icon' />
             <span>System Health</span>

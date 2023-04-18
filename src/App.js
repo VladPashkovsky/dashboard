@@ -16,6 +16,7 @@ import Edit from './pages/edit/Edit'
 import Orders from './pages/orders/Orders'
 import NewOrder from './pages/new/NewOrder'
 import Calendar from './pages/calendar/Calendar'
+import Faq from './pages/faq/FAQ'
 
 function App() {
   const { darkMod } = useContext(DarkModContext)
@@ -37,26 +38,31 @@ function App() {
             <Route path='users'>
               <Route index element={<RequireAuth><List /></RequireAuth>} />
               <Route path=':id' element={<RequireAuth><Single /></RequireAuth>} />
-              <Route path='new' element={<RequireAuth><New inputs={userInputs} title='Add New User'/></RequireAuth>} />
+              <Route path='new' element={<RequireAuth><New inputs={userInputs} title='Add New User' /></RequireAuth>} />
             </Route>
 
             <Route path='edit'>
-              <Route path=':id' element={<RequireAuth><Edit title='Edit User'/></RequireAuth>} />
+              <Route path=':id' element={<RequireAuth><Edit title='Edit User' /></RequireAuth>} />
             </Route>
 
             <Route path='products'>
               <Route index element={<RequireAuth><Products /></RequireAuth>} />
               <Route path=':id' element={<RequireAuth><SingleProduct /></RequireAuth>} />
-              <Route path='new' element={<RequireAuth><NewProduct inputs={productInputs} title='Add New Product'/></RequireAuth>} />
+              <Route path='new' element={<RequireAuth><NewProduct inputs={productInputs}
+                                                                  title='Add New Product' /></RequireAuth>} />
             </Route>
 
             <Route path='orders'>
-              <Route index element={<RequireAuth><Orders /></RequireAuth>}/>
-              <Route path='neworder' element={<RequireAuth> <NewOrder title='Add New Order'/> </RequireAuth>} />
+              <Route index element={<RequireAuth><Orders /></RequireAuth>} />
+              <Route path='neworder' element={<RequireAuth> <NewOrder title='Add New Order' /> </RequireAuth>} />
             </Route>
 
             <Route path='calendar'>
-              <Route index element={<RequireAuth> <Calendar title='Calendar'/> </RequireAuth>}/>
+              <Route index element={<RequireAuth> <Calendar title='Calendar' /> </RequireAuth>} />
+            </Route>
+
+            <Route path='faq'>
+              <Route index element={<RequireAuth> <Faq title='F.A.Q' /> </RequireAuth>} />
             </Route>
 
           </Route>
