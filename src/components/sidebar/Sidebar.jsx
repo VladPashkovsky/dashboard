@@ -7,7 +7,7 @@ import CreditCardOutlinedIcon from '@mui/icons-material/CreditCardOutlined'
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import StackedBarChartIcon from '@mui/icons-material/StackedBarChart';
-import PsychologyOutlinedIcon from '@mui/icons-material/PsychologyOutlined'
+import PublicIcon from '@mui/icons-material/Public';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined'
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined'
@@ -96,10 +96,13 @@ const Sidebar = () => {
             </li>
           </Link>
 
-          <li>
-            <PsychologyOutlinedIcon className='icon' />
-            <span>Logs</span>
-          </li>
+          <Link to='/worldstatistics' style={{textDecoration: 'none'}}>
+            <li>
+              <PublicIcon className='icon' />
+              <span>World Statistics</span>
+            </li>
+          </Link>
+
           <li>
             <SettingsOutlinedIcon className='icon' />
             <span>Settings</span>

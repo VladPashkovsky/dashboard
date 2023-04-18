@@ -18,6 +18,7 @@ import NewOrder from './pages/new/NewOrder'
 import Calendar from './pages/calendar/Calendar'
 import Faq from './pages/faq/FAQ'
 import BarChart from './pages/chartbar/BarChart'
+import WorldStatistics from './pages/world/WorldStatistics'
 
 function App() {
   const { darkMod } = useContext(DarkModContext)
@@ -68,6 +69,10 @@ function App() {
 
             <Route path='barchart'>
               <Route index element={ <RequireAuth> <BarChart title='Bar Chart'/> </RequireAuth> } />
+            </Route>
+
+            <Route path='/worldstatistics'>
+              <Route index element={ <RequireAuth> <WorldStatistics title='World Statistics'/> </RequireAuth> } />
             </Route>
 
           </Route>

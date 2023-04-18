@@ -1,0 +1,30 @@
+.world {
+  display: flex;
+  width: 100%;
+
+  .worldContainer {
+    flex: 6;
+
+    .topWorld {
+      -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      padding: 10px;
+      margin: 20px;
+      display: flex;
+
+      h1 {
+        color: lightgray;
+        font-size: 20px;
+      }
+    }
+
+    .centerWorld {
+      -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      padding: 10px;
+      margin: 20px;
+      width: 85vw;
+      height: 75vh;
+    }
+  }
+}
