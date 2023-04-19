@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import './widget.scss'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowUp'
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline'
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined'
+import CreditCardOutlinedIcon from '@mui/icons-material/CreditCardOutlined'
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn'
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
+import StoreOutlinedIcon from '@mui/icons-material/StoreOutlined'
 import { collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '../../firebase'
 
@@ -27,7 +27,7 @@ const Widget = ({ type, link }) => {
         link: 'See all users',
         query: 'users',
         icon: (
-          <PersonOutlineIcon
+          <PeopleAltOutlinedIcon
             className='icon'
             style={{ color: 'crimson', backgroundColor: 'rgba(255,0,0,0.2)' }} />),
       }
@@ -38,7 +38,7 @@ const Widget = ({ type, link }) => {
         isMoney: false,
         link: 'View all orders',
         icon: (
-          <ShoppingCartOutlinedIcon
+          <CreditCardOutlinedIcon
             className='icon'
             style={{ color: 'goldenrod', backgroundColor: 'rgba(239,195,71,0.2)' }} />),
       }
@@ -60,7 +60,7 @@ const Widget = ({ type, link }) => {
         query: 'products',
         link: 'See details',
         icon: (
-          <AccountBalanceIcon
+          <StoreOutlinedIcon
             className='icon'
             style={{ color: 'purple', backgroundColor: 'rgba(188,95,234,0.2)' }} />),
       }

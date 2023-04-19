@@ -4,11 +4,9 @@ import DashboardIcon from '@mui/icons-material/Dashboard'
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined'
 import StoreOutlinedIcon from '@mui/icons-material/StoreOutlined'
 import CreditCardOutlinedIcon from '@mui/icons-material/CreditCardOutlined'
-import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import StackedBarChartIcon from '@mui/icons-material/StackedBarChart';
 import PublicIcon from '@mui/icons-material/Public';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined'
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -66,11 +64,6 @@ const Sidebar = () => {
             </li>
           </Link>
 
-          <li>
-            <LocalShippingOutlinedIcon className='icon' />
-            <span>Delivery</span>
-          </li>
-
           <p className='title'>USEFUL</p>
 
           <Link to='/calendar' style={{ textDecoration: 'none' }}>
@@ -103,10 +96,6 @@ const Sidebar = () => {
             </li>
           </Link>
 
-          <li>
-            <SettingsOutlinedIcon className='icon' />
-            <span>Settings</span>
-          </li>
           <p className='title'>USER</p>
           <li>
             <AssignmentIndOutlinedIcon className='icon' />
