@@ -45,13 +45,14 @@ const Widget = ({ type, link }) => {
       break
     case 'earning':
       data = {
-        title: 'EARNINGS',
-        isMoney: true,
-        link: 'View net earning',
-        icon: (
-          <MonetizationOnIcon
-            className='icon'
-            style={{ color: 'green', backgroundColor: 'rgba(29,234,86,0.2)' }} />),
+
+        // title: 'EARNINGS',
+        // isMoney: true,
+        // link: 'View net earning',
+      //   icon: (
+      //     <MonetizationOnIcon
+      //       className='icon'
+      //       style={{ color: 'green', backgroundColor: 'rgba(29,234,86,0.2)' }} />),
       }
       break
     case 'product':
