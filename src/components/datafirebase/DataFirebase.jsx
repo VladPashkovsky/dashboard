@@ -47,10 +47,10 @@ const DataFirebase = () => {
   }
 
   const handleDelete = async (id) => {
+    setModalActive(false)
     try {
       await deleteDoc(doc(db, 'users', id))
       setData(data.filter(item => item.id !== id))
-      setModalActive(false)
     } catch (err) {
       console.log(err)
     }
