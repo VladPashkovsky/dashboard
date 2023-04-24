@@ -1,7 +1,18 @@
 .table {
+
+  &:hover {
+    -moz-transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+    -o-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    transform: scale(1.01);
+    transition: 200.0ms;
+  }
+
   .cellWrapper {
     display: flex;
     align-items: center;
+
 
     .image {
       width: 32px;

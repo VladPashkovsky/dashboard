@@ -4,6 +4,15 @@
   box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
   padding: 10px;
 
+  &:hover {
+    -moz-transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+    -o-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    transform: scale(1.01);
+    transition: 200.0ms;
+  }
+
   .top {
     display: flex;
     align-items: center;
