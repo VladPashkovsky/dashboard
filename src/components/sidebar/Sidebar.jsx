@@ -97,10 +97,14 @@ const Sidebar = () => {
           </Link>
 
           <p className='title'>USER</p>
-          <li>
-            <AssignmentIndOutlinedIcon className='icon' />
-            <span>Profile</span>
-          </li>
+
+          <Link to='/profile' style={{textDecoration: 'none'}}>
+            <li>
+              <AssignmentIndOutlinedIcon className='icon' />
+              <span>Profile</span>
+            </li>
+          </Link>
+
           <li onClick={logOut}>
             <LogoutOutlinedIcon className='icon' />
             <span>Logout</span>
