@@ -1,7 +1,7 @@
 import React from 'react'
 import './profile.scss'
 import Sidebar from '../../components/sidebar/Sidebar'
-import ResumePhoto from './Resume2.jpg'
+import Resume from '../../components/resume/Resume'
 
 
 const Profile = () => {
@@ -9,7 +9,7 @@ const Profile = () => {
     <div className='profile'>
       <Sidebar />
       <div className='profileContainer'>
-        <img src={ResumePhoto} alt='' style={{display: 'flex', margin: '0 auto'}}/>
+          <Resume />
       </div>
     </div>
   )

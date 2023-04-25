@@ -1,6 +1,10 @@
 import React from 'react'
 import './resume.css'
 import PhotoSmall from './Photo_small.jpg'
+import AccountBalanceSharpIcon from '@mui/icons-material/AccountBalanceSharp';
+import MenuBookSharpIcon from '@mui/icons-material/MenuBookSharp';
+import LocalMoviesSharpIcon from '@mui/icons-material/LocalMoviesSharp';
+import LocalAirportSharpIcon from '@mui/icons-material/LocalAirportSharp';
 
 const Resume = () => {
   return (
@@ -55,7 +59,7 @@ const Resume = () => {
                     <div className="skills_left">HTML</div>
                     <div className="skills_bar">
                       <p>
-                        {/*<span style="width: 80%"></span>*/}
+                        <span style={{width: '80%'}}></span>
                       </p>
                     </div>
                   </div>
@@ -63,7 +67,7 @@ const Resume = () => {
                     <div className="skills_left">CSS</div>
                     <div className="skills_bar">
                       <p>
-                        {/*<span style="width: 70%"></span>*/}
+                        <span style={{width: '70%'}}></span>
                       </p>
                     </div>
                   </div>
@@ -71,7 +75,7 @@ const Resume = () => {
                     <div className="skills_left">Javascript</div>
                     <div className="skills_bar">
                       <p>
-                        {/*<span style="width: 90%"></span>*/}
+                        <span style={{width: '90%'}}></span>
                       </p>
                     </div>
                   </div>
@@ -109,7 +113,7 @@ const Resume = () => {
 
           <div className="resume_item resume_experience">
             <div className="resume_title">Soft Skills</div>
-            <div className="resume_info" style={{marginBottom: '47px'}}>
+            <div className="resume_info" style={{marginBottom: '85px'}}>
               <div className="resume_data">
                 <div className="year"></div>
                 <div className="content">
@@ -149,12 +153,12 @@ const Resume = () => {
 
           <div className="resume_item resume_experience" >
             <div className="resume_title">Experience</div>
-            <div className="resume_info" style={{marginBottom: '62px'}}>
+            <div className="resume_info" style={{marginBottom: '50px'}}>
               <div className="resume_data">
                 <div className="year">2022 - по наст. время</div>
                 <div className="content">
                   <p>Практика.</p>
-                  <p>Практика приминения и дальнейшее изучение технологий с использованием Next, Redux/Redux Toolkit/RTK Query</p>
+                  <p>Практика приминения и дальнейшее изучение технологий с использованием React, Next, Redux/Redux Toolkit/RTK Query</p>
                 </div>
               </div>
               <div className="resume_data">
@@ -173,25 +177,33 @@ const Resume = () => {
             <div className="resume_info">
               <div className="interests">
                 <div className="int_icon">
-                  <i className="fa-sharp fa-solid fa-landmark"></i>
+                  <i className="fa-sharp fa-solid fa-landmark">
+                    <AccountBalanceSharpIcon />
+                  </i>
                 </div>
                 <div className="int_data">History</div>
               </div>
               <div className="interests">
                 <div className="int_icon">
-                  <i className="fas fa-book-open"></i>
+                  <i className="fas fa-book-open">
+                    <MenuBookSharpIcon />
+                  </i>
                 </div>
                 <div className="int_data">Reading</div>
               </div>
               <div className="interests">
                 <div className="int_icon">
-                  <i className="fas fa-film"></i>
+                  <i className="fas fa-film">
+                    <LocalMoviesSharpIcon />
+                  </i>
                 </div>
                 <div className="int_data">Movies</div>
               </div>
               <div className="interests">
                 <div className="int_icon">
-                  <i className="fa-solid fa-earth-americas"></i>
+                  <i className="fa-solid fa-earth-americas">
+                    <LocalAirportSharpIcon />
+                  </i>
                 </div>
                 <div className="int_data">Traveling</div>
               </div>
