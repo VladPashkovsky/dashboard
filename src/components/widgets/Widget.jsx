@@ -11,6 +11,9 @@ import { db } from '../../firebase'
 
 const Widget = ({ type, link }) => {
   const [amount, setAmount] = useState(null)
+  const [users, setUsers] = useState([])
+  const [products, setProducts] = useState(null)
+  const [orders, setOrders] = useState(null)
   const [diff, setDiff] = useState(null)
   let data
 
@@ -24,6 +27,7 @@ const Widget = ({ type, link }) => {
       data = {
         title: 'USERS',
         isMoney: false,
+        count: [users],
         link: 'See all users',
         query: 'users',
         icon: (
@@ -36,6 +40,7 @@ const Widget = ({ type, link }) => {
       data = {
         title: 'ORDER',
         isMoney: false,
+        count: [orders],
         link: 'View all orders',
         icon: (
           <CreditCardOutlinedIcon
@@ -49,15 +54,16 @@ const Widget = ({ type, link }) => {
         // title: 'EARNINGS',
         // isMoney: true,
         // link: 'View net earning',
-      //   icon: (
-      //     <MonetizationOnIcon
-      //       className='icon'
-      //       style={{ color: 'green', backgroundColor: 'rgba(29,234,86,0.2)' }} />),
+        //   icon: (
+        //     <MonetizationOnIcon
+        //       className='icon'
+        //       style={{ color: 'green', backgroundColor: 'rgba(29,234,86,0.2)' }} />),
       }
       break
     case 'product':
       data = {
         title: 'PRODUCTS',
+        count: [products],
         query: 'products',
         link: 'See details',
         icon: (
@@ -94,11 +100,24 @@ const Widget = ({ type, link }) => {
   //   fetchData()
   // }, [])
 
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const querySnapshotUsers = await getDocs(collection(db, 'users'))
+      const querySnapshotProducts = await getDocs(collection(db, 'products'))
+      const querySnapshotOrders = await getDocs(collection(db, 'orders'))
+      setUsers(querySnapshotUsers.docs.length)
+      setProducts(querySnapshotProducts.docs.length)
+      setOrders(querySnapshotOrders.docs.length)
+    }
+    fetchUsers()
+  }, [])
+
   return (
     <div className='widget'>
       <div className='left'>
         <span className='title'>{data.title}</span>
-        <span className='counter'>{data.isMoney && '$'} {amount}</span>
+        <span className='counter'>{data.count}</span>
+        {/*<span className='counter'>{data.isMoney && '$'} {amount}</span>*/}
         <span className='link' onClick={link}>{data.link}</span>
         {/*<Link to={link} style={{textDecoration: 'none'}}>*/}
         {/*  <span className='link'>{data.link}</span>*/}
