@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import './single.scss'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Navbar from '../../components/navbar/Navbar'
@@ -7,8 +7,6 @@ import Chart from '../../components/charts/Chart'
 import MyTable from '../../components/table/MyTable'
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import Tooltip from '@mui/material/Tooltip'
 
 
 const SingleProduct = () => {

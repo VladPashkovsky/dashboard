@@ -1,4 +1,3 @@
-
 import './chart.scss'
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis } from 'recharts'
 

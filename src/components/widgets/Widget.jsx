@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './widget.scss'
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowUp'
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined'
 import CreditCardOutlinedIcon from '@mui/icons-material/CreditCardOutlined'
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn'
 import StoreOutlinedIcon from '@mui/icons-material/StoreOutlined'
-import { collection, getDocs, query, where } from 'firebase/firestore'
+import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../../firebase'
 
 const Widget = ({ type, link }) => {
@@ -38,7 +35,7 @@ const Widget = ({ type, link }) => {
       break
     case 'order':
       data = {
-        title: 'ORDER',
+        title: 'ORDERS',
         isMoney: false,
         count: [orders],
         link: 'View all orders',
