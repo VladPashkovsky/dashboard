@@ -2,6 +2,7 @@ import React from 'react'
 import './profile.scss'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Resume from '../../components/resume/Resume'
+import Navbar from '../../components/navbar/Navbar'
 
 
 const Profile = () => {
@@ -9,7 +10,7 @@ const Profile = () => {
     <div className='profile'>
       <Sidebar />
       <div className='profileContainer'>
-          <Resume />
+          {/*<Resume />*/}
       </div>
     </div>
   )
