@@ -64,7 +64,7 @@ const Navbar = () => {
           </div>
           <Tooltip title='Code' placement='bottom-start'>
             <div className='item'>
-              <a href='https://github.com/VladPashkovsky/admin_dashboard' target='_blank' rel="noreferrer">
+              <a href='https://github.com/VladPashkovsky/dashboard' target='_blank' rel="noreferrer">
                 <img
                   src='https://avatars.githubusercontent.com/u/91205543?s=400&u=f0a2f68b2ece2f8c41a3c3a4a3e89fae5659ed56&v=4'
                   className='avatar'
